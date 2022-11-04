@@ -1,0 +1,196 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 134217728 bytes for Failed to commit area from 0x00000000d1200000 to 0x00000000d9200000 of length 134217728.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (src/hotspot/os/windows/os_windows.cpp:3627), pid=322024, tid=323044
+#
+# JRE version:  (11.0.15+10) (build )
+# Java VM: OpenJDK 64-Bit Server VM (11.0.15+10-b2043.56, mixed mode, sharing, tiered, compressed oops, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Djava.rmi.server.hostname=127.0.0.1 -Duser.timezone=UTC -Xmx750m -Xms128m -Dfile.encoding=UTF-8 com.intellij.database.remote.RemoteJdbcServer com.mysql.cj.jdbc.Driver
+
+Host: Intel(R) Core(TM) i5-8265U CPU @ 1.60GHz, 8 cores, 7G,  Windows 11 , 64 bit Build 22000 (10.0.22000.708)
+Time: Thu Nov  3 17:15:59 2022  Windows 11 , 64 bit Build 22000 (10.0.22000.708) elapsed time: 0.034072 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000017eade13000):  JavaThread "Unknown thread" [_thread_in_vm, id=323044, stack(0x000000668f300000,0x000000668f400000)]
+
+Stack: [0x000000668f300000,0x000000668f400000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x61612a]
+V  [jvm.dll+0x79c450]
+V  [jvm.dll+0x79da6d]
+V  [jvm.dll+0x79e143]
+V  [jvm.dll+0x24cc18]
+V  [jvm.dll+0x613174]
+V  [jvm.dll+0x607e55]
+V  [jvm.dll+0x30b1cb]
+V  [jvm.dll+0x30b13a]
+V  [jvm.dll+0x30b012]
+V  [jvm.dll+0x30ff76]
+V  [jvm.dll+0x35b4c3]
+V  [jvm.dll+0x35bbc6]
+V  [jvm.dll+0x35b5c3]
+V  [jvm.dll+0x2e5918]
+V  [jvm.dll+0x2e6ab7]
+V  [jvm.dll+0x7794f7]
+V  [jvm.dll+0x77acec]
+V  [jvm.dll+0x368a59]
+V  [jvm.dll+0x75ce8e]
+V  [jvm.dll+0x3d6a33]
+V  [jvm.dll+0x3d9001]
+C  [jli.dll+0x536b]
+C  [ucrtbase.dll+0x26c0c]
+C  [KERNEL32.DLL+0x154e0]
+C  [ntdll.dll+0x485b]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x0000017eadc94030, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x0000017eade2c000 GCTaskThread "GC Thread#0" [stack: 0x000000668f400000,0x000000668f500000] [id=320060]
+  0x0000017eade44000 ConcurrentGCThread "G1 Main Marker" [stack: 0x000000668f500000,0x000000668f600000] [id=321356]
+  0x0000017eade45000 ConcurrentGCThread "G1 Conc#0" [stack: 0x000000668f600000,0x000000668f700000] [id=324548]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ff943eb6017]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x0000017eade11840] Heap_lock - owner thread: 0x0000017eade13000
+
+Heap address: 0x00000000d1200000, size: 750 MB, Compressed Oops mode: Non-zero based: 0x00000000d1200000
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (1 events):
+Event: 0.022 Loaded shared library F:\Program Files\GoLand 2022.1.3\jbr\bin\zip.dll
+
+
+Dynamic libraries:
+0x00007ff6d3670000 - 0x00007ff6d367a000 	F:\Program Files\GoLand 2022.1.3\jbr\bin\java.exe
+0x00007ff97df80000 - 0x00007ff97e189000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ff97cb70000 - 0x00007ff97cc2d000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ff97ba90000 - 0x00007ff97be0c000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ff97b460000 - 0x00007ff97b571000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ff974db0000 - 0x00007ff974dc9000 	F:\Program Files\GoLand 2022.1.3\jbr\bin\jli.dll
+0x00007ff96a650000 - 0x00007ff96a666000 	F:\Program Files\GoLand 2022.1.3\jbr\bin\VCRUNTIME140.dll
+0x00007ff97cc30000 - 0x00007ff97cddd000 	C:\WINDOWS\System32\USER32.dll
+0x00007ff97b6f0000 - 0x00007ff97b716000 	C:\WINDOWS\System32\win32u.dll
+0x00007ff97d850000 - 0x00007ff97d879000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ff97b860000 - 0x00007ff97b979000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ff96a1c0000 - 0x00007ff96a465000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22000.120_none_9d947278b86cc467\COMCTL32.dll
+0x00007ff97b980000 - 0x00007ff97ba1d000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ff97ce80000 - 0x00007ff97cf23000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ff97d700000 - 0x00007ff97d731000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ff966290000 - 0x00007ff96633a000 	F:\Program Files\GoLand 2022.1.3\jbr\bin\msvcp140.dll
+0x00007ff943bc0000 - 0x00007ff94473b000 	F:\Program Files\GoLand 2022.1.3\jbr\bin\server\jvm.dll
+0x00007ff97bea0000 - 0x00007ff97bf4e000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ff97cde0000 - 0x00007ff97ce7e000 	C:\WINDOWS\System32\sechost.dll
+0x00007ff97c970000 - 0x00007ff97ca90000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ff97cf30000 - 0x00007ff97cf38000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ff975680000 - 0x00007ff9756b3000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ff962f40000 - 0x00007ff962f49000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ff974eb0000 - 0x00007ff974eba000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ff97bf60000 - 0x00007ff97bfcf000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ff97a640000 - 0x00007ff97a658000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ff977cc0000 - 0x00007ff977cd1000 	F:\Program Files\GoLand 2022.1.3\jbr\bin\verify.dll
+0x00007ff976b00000 - 0x00007ff976d21000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ff963cb0000 - 0x00007ff963ce1000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ff97b720000 - 0x00007ff97b79f000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ff96a5f0000 - 0x00007ff96a619000 	F:\Program Files\GoLand 2022.1.3\jbr\bin\java.dll
+0x00007ff977d30000 - 0x00007ff977d3b000 	F:\Program Files\GoLand 2022.1.3\jbr\bin\jimage.dll
+0x00007ff96a5d0000 - 0x00007ff96a5e9000 	F:\Program Files\GoLand 2022.1.3\jbr\bin\zip.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;F:\Program Files\GoLand 2022.1.3\jbr\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.22000.120_none_9d947278b86cc467;F:\Program Files\GoLand 2022.1.3\jbr\bin\server
+
+VM Arguments:
+jvm_args: -Djava.rmi.server.hostname=127.0.0.1 -Duser.timezone=UTC -Xmx750m -Xms128m -Dfile.encoding=UTF-8 
+java_command: com.intellij.database.remote.RemoteJdbcServer com.mysql.cj.jdbc.Driver
+java_class_path (initial): F:\Program Files\GoLand 2022.1.3\lib\util_rt.jar;F:\Program Files\GoLand 2022.1.3\lib\util.jar;F:\Program Files\GoLand 2022.1.3\lib\groovy.jar;F:\Program Files\GoLand 2022.1.3\plugins\DatabaseTools\lib\jdbc-console.jar;C:\Users\admin\AppData\Roaming\JetBrains\GoLand2022.1\jdbc-drivers\MySQL ConnectorJ\8.0.25\mysql-connector-java-8.0.25.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 2                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 8                                         {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 1048576                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 134217728                                 {product} {command line}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 786432000                                 {product} {command line}
+   size_t MinHeapDeltaBytes                        = 1048576                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5836300                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122910970                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122910970                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=E:\Program Files\jdk1.8
+PATH=F:\oracle_client\product\11.2.0\client_1\bin;D:\oralce\product\11.2.0\dbhome_1\bin;D:\app\一条寂寞的鱼\product\11.2.0\dbhome_1\bin;D:\software02\bin\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Intel\WiFi\bin\;C:\Program Files\Common Files\Intel\WirelessCommon\;"E:\Program Files\Tomcat\apache-tomcat-8.5.64\bin;E:\Program Files\Tomcat\apache-tomcat-8.5.64\lib";E:\Program Files\jdk1.8\bin;D:\Program Files\Git\cmd;E:\Program Files\maven\apache-maven-3.8.1\bin;C:\Program Files\nodejs\;D:\Program Files\erl9.2\bin;D:\software02\CtoD\MySQL Server 5.7\bin;D:\software02\Dev-Cpp\MinGW64\bin;E:\Program Files\MySQL Server\mysql-8.0.26-winx64\bin;E:\Program Files\go1.17\go1.17\bin;C:\mingw64\bin;;F:\Program Files (x86)\pcsuite\;C:\Users\admin\AppData\Local\Microsoft\WindowsApps;F:\Program Files\IntelliJ IDEA 2020.1.2\bin;;C:\Users\一条寂寞的鱼\AppData\Local\Programs\Microsoft VS Code\bin;E:\Programs\Microsoft VS Code\bin;C:\Users\admin\AppData\Roaming\npm;F:\Program Files\GoLand 2022.1.3\bin;;F:\Program Files\CLion 2020.2.5\bin;
+USERNAME=一条寂寞的鱼
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 142 Stepping 12, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 11 , 64 bit Build 22000 (10.0.22000.708)
+OS uptime: 12 days 19:19 hours
+
+CPU:total 8 (initial active 8) (4 cores per cpu, 2 threads per core) family 6 model 142 stepping 12 microcode 0xde, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx, fma
+
+Memory: 4k page, system-wide physical 8037M (1048M free)
+TotalPageFile size 18277M (AvailPageFile size 114M)
+current process WorkingSet (physical memory assigned to process): 10M, peak: 10M
+current process commit charge ("private bytes"): 59M, peak: 187M
+
+vm_info: OpenJDK 64-Bit Server VM (11.0.15+10-b2043.56) for windows-amd64 JRE (11.0.15+10-b2043.56), built on May 16 2022 02:28:12 by "" with MS VC++ 14.0 (VS2015)
+
+END.

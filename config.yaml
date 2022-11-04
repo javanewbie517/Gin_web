@@ -1,0 +1,19 @@
+# github.com/flipped-aurora/gin-vue-admin/server Global Configuration
+
+# jwt configuration
+jwt:
+  signing-key: qmPlus
+  expires-time: 1m
+  buffer-time: 1d
+  issuer: qmPlus
+mysql:
+  Host: "127.0.0.1"
+  port: "3306"
+  config: "charset=utf8mb4&parseTime=True&loc=Local"
+  db-name: "bubble"
+  username: "root"
+  password: "123456"
+  max-idle-conns: 10
+  max-open-conns: 100
+  log-mode: "error"
+  log-zap: false
