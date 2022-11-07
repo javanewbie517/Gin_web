@@ -33,6 +33,10 @@ func (u *UserApi) Login(c *gin.Context) {
 		return
 	}
 	userMsg, err := userService.Login(&user)
+	if err != nil {
+		response.FailWithMessage(c, err.Error())
+		return
+	}
 	token, err := jwt.GenerateToken(userMsg.Username, userMsg.Password)
 	response.OkWithDetailed(c,
 		map[string]interface{}{
@@ -52,5 +56,18 @@ func (u *UserApi) GetUserById(c *gin.Context) {
 		return
 	}
 	response.OkWithDetailed(c, user, "获取成功")
+}
 
+func (u *UserApi) GetAllUser(c *gin.Context) {
+
+	userList, err := userService.GetAllUser()
+	if err != nil {
+		response.FailWithMessage(c, err.Error())
+		return
+	}
+	response.OkWithDetailed(c,
+		map[string]interface{}{
+			"userList": userList,
+			"total":    len(userList),
+		}, "获取成功")
 }

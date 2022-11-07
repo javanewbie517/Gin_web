@@ -3,7 +3,7 @@
 # jwt configuration
 jwt:
   signing-key: qmPlus
-  expires-time: 1m
+  expires-time: 1h
   buffer-time: 1d
   issuer: qmPlus
 mysql:

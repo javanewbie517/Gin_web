@@ -13,6 +13,7 @@ func InitMySQL() (err error) {
 		cfg.Username, cfg.Password, cfg.Host, cfg.Port, cfg.Dbname)
 
 	global.GVA_DB, err = gorm.Open("mysql", dsn)
+	global.GVA_DB.LogMode(true) //启动调试模式，控制台会输出对应的SQL语句
 	if err != nil {
 		return
 	}
