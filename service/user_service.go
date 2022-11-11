@@ -5,6 +5,7 @@ import (
 	"bubble/server/global"
 	"bubble/server/util"
 	"errors"
+	"fmt"
 	"github.com/jinzhu/gorm"
 	uuid "github.com/satori/go.uuid"
 )
@@ -38,7 +39,28 @@ func (userService *UserService) GetUserById(userId string) (user models.User, er
 	return user, err
 }
 
-func (userService *UserService) GetAllUser() (userList []models.User, err error) {
-	err = global.GVA_DB.Find(&userList).Error
-	return userList, err
+func (userService *UserService) GetAllUser(pageNum, pageSize int) (userList []models.User, total int, err error) {
+	err = global.GVA_DB.Scopes(util.Paginate(pageNum, pageSize)).Find(&userList).Error
+	global.GVA_DB.Model(&models.User{}).Count(&total)
+	return userList, total, err
+}
+
+func (userService *UserService) TestTransaction() (err error) {
+	var userList []models.User
+	err = global.GVA_DB.Transaction(func(tx *gorm.DB) error {
+		// 在事务中执行一些 db 操作（从这里开始，应该使用 'tx' 而不是 'db'）
+		err = tx.Find(&userList).Error
+		for _, user := range userList {
+			//fmt.Println("user:", user)
+			if user.Enable == 0 {
+				// 返回任何错误都会回滚事务
+				return errors.New("遇到错误，已经回滚")
+			}
+			//tx.Model(&user).Update("note", "default")
+			fmt.Println("user:", user)
+		}
+		// 返回 nil 提交事务
+		return nil
+	})
+	return err
 }

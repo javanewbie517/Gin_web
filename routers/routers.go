@@ -24,7 +24,7 @@ func SetupRouter() *gin.Engine {
 		RouterGroupApp.BaseRouter.InitBaseRouter(PublicGroup) // 注册基础功能路由 不做鉴权
 	}
 	PrivateGroup := Router.Group("")
-	PrivateGroup.Use(middleware.JWTAuth()) //使用中间件
+	//PrivateGroup.Use(middleware.JWTAuth()) //使用中间件
 	{
 		RouterGroupApp.UserRouter.InitUserRouter(PrivateGroup)
 	}
